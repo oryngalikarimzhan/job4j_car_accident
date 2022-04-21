@@ -8,13 +8,17 @@ import java.util.Collection;
 
 @Service
 public class AccidentService {
-    private final AccidentMem memStore = new AccidentMem();
+    private final AccidentMem memStore;
+
+    public AccidentService() {
+        this.memStore = new AccidentMem();
+    }
 
     public Collection<Accident> getAll() {
-        return memStore.getAccidents().values();
+        return memStore.getAccidents();
     }
 
     public void addAccident(Accident accident) {
-        memStore.getAccidents().put(accident.getId(), accident);
+        memStore.addToMap(accident);
     }
 }
