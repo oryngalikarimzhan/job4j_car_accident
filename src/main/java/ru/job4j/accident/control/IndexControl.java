@@ -10,8 +10,8 @@ public class IndexControl {
 
     private final AccidentService accidentService;
 
-    public IndexControl() {
-        this.accidentService = new AccidentService();
+    public IndexControl(AccidentService accidentService) {
+        this.accidentService = accidentService;
     }
 
     @GetMapping("/")
