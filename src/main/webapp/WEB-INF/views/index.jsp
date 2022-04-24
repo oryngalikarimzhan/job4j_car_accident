@@ -17,8 +17,17 @@
             <div class="row">
                 <div class="card" style="width: 100%">
                     <div class="card-header">
-                        THE ACCIDENTS LIST
+                        ACCIDENTS LIST
                     </div>
+                    <div style="margin-top: 10px">
+                        <button onclick="window.location.href='<c:url value='/create'/>'" style="width: 100px">
+                            Create
+                        </button>
+                        <button onclick="window.location.href='<c:url value='/edit'/>'" style="width: 100px">
+                            Edit
+                        </button>
+                    </div>
+
                     <div class="card-body">
                         <table class="table">
                             <thead>

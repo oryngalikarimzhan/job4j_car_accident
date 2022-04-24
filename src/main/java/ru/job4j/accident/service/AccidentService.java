@@ -18,7 +18,11 @@ public class AccidentService {
         return memStore.getAccidents();
     }
 
-    public void addAccident(Accident accident) {
-        memStore.addToMap(accident);
+    public void create(Accident accident) {
+        memStore.add(accident);
+    }
+
+    public void change(Accident accident) {
+        memStore.update(accident);
     }
 }

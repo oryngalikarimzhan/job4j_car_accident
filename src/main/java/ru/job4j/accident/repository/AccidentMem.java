@@ -4,12 +4,12 @@ import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
 
 import java.util.Collection;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class AccidentMem {
     private final ConcurrentHashMap<Integer, Accident> accidents;
+    private int id = 5;
 
     public AccidentMem() {
         this.accidents = new ConcurrentHashMap<>();
@@ -26,7 +26,13 @@ public class AccidentMem {
         return this.accidents.values();
     }
 
-    public void addToMap(Accident accident) {
-        this.accidents.put(accident.getId(), accident);
+    public void add(Accident accident) {
+        accident.setId(id);
+        this.accidents.put(id, accident);
+        this.id++;
+    }
+
+    public void update(Accident accident) {
+        accidents.put(accident.getId(), accident);
     }
 }
