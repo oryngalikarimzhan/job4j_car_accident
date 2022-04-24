@@ -23,9 +23,6 @@
                         <button onclick="window.location.href='<c:url value='/create'/>'" style="width: 100px">
                             Create
                         </button>
-                        <button onclick="window.location.href='<c:url value='/edit'/>'" style="width: 100px">
-                            Edit
-                        </button>
                     </div>
 
                     <div class="card-body">
@@ -36,6 +33,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Text</th>
                                     <th scope="col">Address</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,6 +50,13 @@
                                         </td>
                                         <td>
                                             <c:out value="${accident.address}"/>
+                                        </td>
+                                        <td>
+                                            <button onclick="window.location.href=
+                                                    '<c:url value='/edit?id=${accident.id}'/>'"
+                                                    style="width: 50px">
+                                                Edit
+                                            </button>
                                         </td>
                                     </tr>
                                 </c:forEach>

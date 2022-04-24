@@ -7,13 +7,7 @@
     <table>
         <tr>
             <td>id:</td>
-            <td>
-                <select name="id">
-                    <c:forEach items="${accidents}" var="accident">
-                        <option value="${accident.id}">${accident.id}</option>
-                    </c:forEach>
-                </select>
-            </td>
+            <td><input type='text' name='id' value="${accident.id}"></td>
             <td>name:</td>
             <td><input type='text' name='name'></td>
             <td>text:</td>

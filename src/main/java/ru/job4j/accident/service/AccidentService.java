@@ -25,4 +25,8 @@ public class AccidentService {
     public void change(Accident accident) {
         memStore.update(accident);
     }
+
+    public Accident findById(int id) {
+        return memStore.get(id);
+    }
 }

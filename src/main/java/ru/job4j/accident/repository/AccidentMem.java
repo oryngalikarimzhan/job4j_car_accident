@@ -35,4 +35,8 @@ public class AccidentMem {
     public void update(Accident accident) {
         accidents.put(accident.getId(), accident);
     }
+
+    public Accident get(int id) {
+        return this.accidents.get(id);
+    }
 }

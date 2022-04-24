@@ -24,8 +24,8 @@ public class AccidentControl {
     }
 
     @GetMapping("/edit")
-    public String edit(Model model) {
-        model.addAttribute("accidents", accidents.getAll());
+    public String edit(@RequestParam("id") int id, Model model) {
+        model.addAttribute("accident", accidents.findById(id));
         return "accident/edit";
     }
 
