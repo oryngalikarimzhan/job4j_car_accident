@@ -33,6 +33,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Text</th>
                                     <th scope="col">Address</th>
+                                    <th scope="col">Type</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
@@ -50,6 +51,9 @@
                                         </td>
                                         <td>
                                             <c:out value="${accident.address}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${accident.type.name}"/>
                                         </td>
                                         <td>
                                             <button onclick="window.location.href=

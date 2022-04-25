@@ -11,6 +11,14 @@
       <td><input type='text' name='text'></td>
       <td>address:</td>
       <td><input type='text' name='address'></td>
+      <td>address:</td>
+      <td>
+        <select name="type.id">
+          <c:forEach var="type" items="${types}" >
+            <option value="${type.id}">${type.name}</option>
+          </c:forEach>
+        </select>
+      </td>
     </tr>
     <tr>
       <td colspan='2'><input name="submit" type="submit" value="Сохранить" /></td>
