@@ -34,6 +34,7 @@
                                     <th scope="col">Text</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Type</th>
+                                    <th scope="col">Rules</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
@@ -54,6 +55,11 @@
                                         </td>
                                         <td>
                                             <c:out value="${accident.type.name}"/>
+                                        </td>
+                                        <td>
+                                            <c:forEach items="${accident.rules}" var="rule">
+                                                <c:out value="${rule.name}"/>
+                                            </c:forEach>
                                         </td>
                                         <td>
                                             <button onclick="window.location.href=
