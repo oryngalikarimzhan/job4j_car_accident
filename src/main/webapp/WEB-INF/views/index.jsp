@@ -67,6 +67,10 @@
                                                     style="width: 50px">
                                                 Edit
                                             </button>
+                                            <button onclick="location.href='<c:url value='/delete?id=${accident.id}'/>'"
+                                                    style="width: 70px">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 </c:forEach>
