@@ -4,46 +4,52 @@ import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.AccidentMem;
+import ru.job4j.accident.repository.AccidentRepository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
-/*@Service*/
+@Service
 public class AccidentService {
-    private final AccidentMem memStore;
+    private final AccidentRepository repository;
 
-    public AccidentService(AccidentMem accidentMem) {
-        this.memStore = accidentMem;
+    public AccidentService(AccidentRepository repository) {
+        this.repository = repository;
     }
 
-    public Collection<Accident> getAll() {
-        return memStore.getAccidents();
+    public Collection<Accident> getAllAccidents() {
+        List<Accident> res = new ArrayList<>();
+        repository.findAll().forEach(res::add);
+        return res;
     }
 
-    public void create(Accident accident, String[] ids) {
-        accident.setRules(Arrays.stream(ids).map(id -> findRuleById(Integer.parseInt(id))).collect(Collectors.toSet()));
-        memStore.add(accident);
+    public void saveAccident(Accident accident, String[] rIds) {
+        accident.setRules(
+                Arrays.stream(rIds)
+                        .map(id -> getRule(Integer.parseInt(id)))
+                        .collect(Collectors.toSet()));
+        repository.save(accident);
     }
 
-    public void change(Accident accident, String[] ids) {
-        accident.setRules(Arrays.stream(ids).map(id -> findRuleById(Integer.parseInt(id))).collect(Collectors.toSet()));
-        memStore.update(accident);
+    public Accident getAccident(int id) {
+        return repository.findAccidentById(id);
     }
 
-    public Accident findById(int id) {
-        return memStore.get(id);
+    public void removeAccident(int id) {
+        repository.delete(getAccident(id));
     }
 
-    public Collection<AccidentType> getAllTypes() {
-        return memStore.getTypes();
+    public Collection<AccidentType> getAllAccidentTypes() {
+        return repository.findAllAccidentTypes();
     }
     public Collection<Rule> getAllRules() {
-        return memStore.getRules();
+        return repository.findAllRules();
     }
 
-    public Rule findRuleById(int id) {
-        return memStore.getRule(id);
+    public Rule getRule(int id) {
+        return repository.findRuleById(id);
     }
 }
