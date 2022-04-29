@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-@Service
+/*@Service*/
 public class AccidentService {
     private final AccidentMem memStore;
 

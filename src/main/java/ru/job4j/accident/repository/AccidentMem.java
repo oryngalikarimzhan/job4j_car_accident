@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Repository
+/*@Repository*/
 public class AccidentMem {
     private final ConcurrentHashMap<Integer, Accident> accidents;
     private final CopyOnWriteArrayList<AccidentType> types;

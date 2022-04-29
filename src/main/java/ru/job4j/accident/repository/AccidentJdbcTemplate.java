@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Repository
+/*@Repository*/
 public class AccidentJdbcTemplate {
     private final JdbcTemplate jdbc;
 
@@ -159,5 +159,4 @@ public class AccidentJdbcTemplate {
                     return rule;
                 });
     }
-
 }
