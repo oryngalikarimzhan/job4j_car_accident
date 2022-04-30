@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!doctype html>
 <html lang="en">
     <head>
@@ -16,8 +17,14 @@
         <div class="container">
             <div class="row">
                 <div class="card" style="width: 100%">
-                    <div class="card-header">
-                        ACCIDENTS LIST
+                    <div class="card-header" style="display: flex; justify-content: space-between">
+                        <div>
+                            ACCIDENTS LIST
+                        </div>
+                        <div>
+                            <c:out value="${username}"/>
+                            <a href="<c:url value='/logout'/> ">Выйти</a>
+                        </div>
                     </div>
                     <div style="margin-top: 10px">
                         <button onclick="window.location.href='<c:url value='/create'/>'" style="width: 100px">
