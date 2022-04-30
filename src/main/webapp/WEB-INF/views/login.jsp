@@ -7,6 +7,7 @@
             ${errorMessage}
     </div>
 </c:if>
+<a href="<c:url value='/reg'/>">Регистрация</a>
 <form name='login' action="<c:url value='/login'/>" method='POST'>
     <table>
         <tr>
